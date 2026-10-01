@@ -4,6 +4,9 @@ One Streamlit app covering all four LTA × NebulaX PS3 subsystems: Door cycle
 detection, ACV fault localisation, Rail Corrugation classification and SHM
 cumulative-damage estimation.
 
+**Zero of our five leaderboard uploads were used.** Every number below comes
+from local validation, which meant the validation had to be worth trusting.
+That constraint shaped most of what follows.
 # Final model submission evaluation scores:
 <img width="1036" height="553" alt="image" src="https://github.com/user-attachments/assets/44363da7-83cd-4f04-9dfb-a0985d442ca3" />
 
@@ -26,6 +29,10 @@ session and temporary uploads are deleted after processing.
 
 ## How we chose each model
 
+The short version: **three of the four subsystems are too small to justify a
+learned model, and we said so rather than fitting one anyway.**
+
+### Rail — the only subsystem with a real model, and the only one with a trap
 TLDR: **three of the four subsystems are too small to justify ML models so we just used chud small models**
 
 ### Rail — the only subsystem with a real model,
