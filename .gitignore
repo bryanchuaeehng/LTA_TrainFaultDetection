@@ -21,8 +21,18 @@ predictions/
 
 .DS_Store
 
-# Derived feature cache and fitted models (plan section 5.4). Never committed.
-artifacts/
+# Ignore derived caches; retain the four production model bundles.
+artifacts/*
+!artifacts/door/
+!artifacts/rail/
+!artifacts/acv/
+!artifacts/shm/
+artifacts/rail/*
+!artifacts/rail/model.joblib
+!artifacts/rail/speed_correlated_features.json
+!artifacts/acv/acv_model_bundle.joblib
+!artifacts/shm/model.joblib
+outputs/
 
 # Local agent/session config — not project deliverables
 CLAUDE.md

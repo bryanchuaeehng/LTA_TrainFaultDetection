@@ -1,0 +1,11 @@
+{
+  "thresholds": {
+    "Close": 88402.0,
+    "Open": 100178.0
+  },
+  "fallback": 98573.0,
+  "feature": "current_sum",
+  "n_train_cycles": 110,
+  "n_abnormal": 30,
+  "note": "Per-operation threshold on integrated motor current. Fitted on all 110 Train cycles. See docs/plans/door.md for validation."
+}

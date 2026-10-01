@@ -5,11 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nebulax-ps3"
 version = "0.1.0"
-description = "NebulaX LTA 2026 Problem Statement 3 — Rail Corrugation"
-requires-python = ">=3.13"
+description = "Unified train condition monitoring for LTA NebulaX PS3"
+requires-python = ">=3.12"
 
 [tool.setuptools]
-packages = ["src", "src.common", "src.rail"]
+packages = ["src", "src.common", "src.rail", "src.door", "src.acv", "src.shm", "src.app"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

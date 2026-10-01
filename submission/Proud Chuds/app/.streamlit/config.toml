@@ -1,0 +1,50 @@
+[theme]
+# LTA-style palette: transit red accent on a cool slate-navy ink.
+# Set through Streamlit's own theming API rather than CSS overrides, so it
+# applies to tabs, buttons and widgets without depending on internal DOM
+# class names that change between Streamlit versions.
+base = "light"
+primaryColor = "#C8102E"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F4F6F9"
+textColor = "#1B2A41"
+linkColor = "#C8102E"
+borderColor = "#DCE1E8"
+showWidgetBorder = true
+baseRadius = "0.6rem"
+buttonRadius = "0.5rem"
+font = "sans serif"
+headingFontWeights = [700, 700, 650]
+metricValueFontSize = "1.9rem"
+metricValueFontWeight = 700
+
+# Semantic status colours, used by st.success / st.error / st.warning and by
+# any coloured text. Chosen to stay legible on white at small sizes.
+redColor = "#B42318"
+redTextColor = "#912018"
+redBackgroundColor = "#FEF3F2"
+greenColor = "#067647"
+greenTextColor = "#05603A"
+greenBackgroundColor = "#ECFDF3"
+orangeColor = "#B54708"
+orangeTextColor = "#93370D"
+orangeBackgroundColor = "#FFFAEB"
+grayColor = "#475467"
+grayTextColor = "#475467"
+grayBackgroundColor = "#F2F4F7"
+
+chartCategoricalColors = ["#C8102E", "#1B2A41", "#067647", "#B54708", "#175CD3", "#6941C6"]
+
+[server]
+headless = true
+maxUploadSize = 64
+enableXsrfProtection = true
+# enableCORS stays FALSE. With it true and corsAllowedOrigins empty (the
+# default), Streamlit restricts cross-origin access and pins the file-upload
+# routes, which rejects browser uploads with HTTP 400 - the upload control
+# shows a red error and no file is ever accepted. XSRF protection is kept on,
+# and it is what actually guards the upload route here.
+enableCORS = false
+
+[browser]
+gatherUsageStats = false

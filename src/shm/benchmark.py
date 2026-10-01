@@ -105,7 +105,7 @@ score_cv(Xc, GBR, "GBoost on everything")
 
 print("\n=== D. recovered physics (reference) ===")
 import sys; sys.path.insert(0, "pkg")
-from shm_core import fit as pfit, predict as ppred
+from src.shm.core import fit as pfit, predict as ppred
 p = np.zeros(64)
 for tr, va in GroupKFold(3).split(H, D, g):
     mdl = pfit(H[tr], D[tr]); p[va] = ppred(H[va], mdl)

@@ -1,0 +1,31 @@
+{
+  "kind": "ridge",
+  "k": 64,
+  "exponents": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "alpha": 0.005179474679231213,
+  "coef": [
+    0.009536161962373058,
+    -0.06848103120468352,
+    0.3617724502000783,
+    0.4859278417980022,
+    0.31623324722568213,
+    0.10201244524625963,
+    -0.08164100020962906
+  ],
+  "train_mape": 0.004745864882654485,
+  "reconstruction": {
+    "training_files": 64,
+    "training_source_sha256": "4323dea7f8f082f9f201f33f48554e47028412e3b1aee38ba68fe3ee942dac0f",
+    "parity_files": 16,
+    "parity_max_relative_difference": 1.2241645140408326e-10,
+    "held_out_labels_used": false
+  }
+}

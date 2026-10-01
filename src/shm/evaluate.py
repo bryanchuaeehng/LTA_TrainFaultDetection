@@ -1,7 +1,7 @@
 """Held-out evaluation: nested CV (k and m chosen inside every fold)."""
 import numpy as np, pandas as pd, os, sys, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from shm_core import cycle_histogram, pseudo_damage, fit, predict
+from src.shm.core import cycle_histogram, pseudo_damage, fit, predict
 from sklearn.model_selection import GroupKFold, KFold, LeaveOneOut
 
 DATA = "/home/claude/repo/PS3/02_Datasets/SHM"
