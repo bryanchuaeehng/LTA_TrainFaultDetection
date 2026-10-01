@@ -1,0 +1,39 @@
+{
+  "standard_cases": [
+    "acv_case_01.xlsx",
+    "acv_case_02.xlsx",
+    "acv_case_03.xlsx",
+    "acv_case_05.xlsx",
+    "acv_case_06.xlsx"
+  ],
+  "robust_features": [
+    "indoor_mean",
+    "cooling_gap_mean",
+    "cooling_gap_p90",
+    "active_gap_mean",
+    "rel_indoor_mean",
+    "rel_gap_mean",
+    "rel_indoor_pos_frac",
+    "rel_gap_pos_frac"
+  ],
+  "model_features": [
+    "indoor_mean",
+    "cooling_gap_mean",
+    "cooling_gap_p90",
+    "active_gap_mean",
+    "rel_indoor_mean",
+    "rel_gap_mean",
+    "rel_indoor_pos_frac",
+    "rel_gap_pos_frac"
+  ],
+  "ensemble_weights": {
+    "domain": 0.16666666666666666,
+    "logistic": 0.16666666666666666,
+    "rf": 0.16666666666666666,
+    "extra": 0.16666666666666666,
+    "window30": 0.16666666666666666,
+    "window60": 0.16666666666666666
+  },
+  "random_state": 42,
+  "test_used_for_selection": false
+}

@@ -1,0 +1,87 @@
+========================================================================
+GATE 3 - cross-validated evaluation
+========================================================================
+eligible set: 228 files
+configurations this run: ['B0', 'B1', 'B2', 'M1'] (count = 4; ONE model, no hyperparameter search)
+
+splitter: RepeatedStratifiedKFold(n_repeats=10, n_splits=5, random_state=20260918)
+  n_splits=5, n_repeats=10, random_state=20260918
+
+folds completed: 50
+
+--- restricted-subset composition across the 50 folds ---
+  restricted size: min 21, median 28.0, max 37
+  Normal   per restricted fold: min 14, max 29
+  Side I   per restricted fold: min 2, max 3
+  Side II  per restricted fold: min 4, max 5
+  folds whose restricted subset is missing any class: 0/50
+
+  first repeat (folds 0-4), validation composition:
+    fold 0: n_val 46 (N 38/SI 3/SII 5)  restricted 27 (N 19/SI 3/SII 5)
+    fold 1: n_val 46 (N 38/SI 3/SII 5)  restricted 29 (N 21/SI 3/SII 5)
+    fold 2: n_val 46 (N 38/SI 3/SII 5)  restricted 27 (N 19/SI 3/SII 5)
+    fold 3: n_val 45 (N 38/SI 2/SII 5)  restricted 27 (N 20/SI 2/SII 5)
+    fold 4: n_val 45 (N 38/SI 3/SII 4)  restricted 29 (N 22/SI 3/SII 4)
+
+--- B2 thresholds refitted per fold (first 5): [(12.85, 13.52), (12.1, 13.75), (12.96, 18.15), (12.4, 12.95), (12.88, 17.98)]
+    distinct B2 threshold pairs across 50 folds: 47
+--- B1 thresholds refitted per fold (first 5): [0.626, 0.629, 0.924, 0.691, 0.797]
+    distinct B1 thresholds across 50 folds: 9
+
+=== RESTRICTED (v >= 9.70) -- THE HEADLINE ===
+  B0: mean 0.2798  std 0.0069  p10 0.2698  p90 0.2876  min 0.2593  max 0.2929
+  B1: mean 0.5381  std 0.1080  p10 0.4146  p90 0.6590  min 0.2791  max 0.8256
+  B2: mean 0.3078  std 0.0674  p10 0.2187  p90 0.3890  min 0.1909  max 0.4653
+  M1: mean 0.7765  std 0.0833  p10 0.6483  p90 0.8744  min 0.5753  max 0.9456
+  per-class F1 (restricted):
+    B0: Normal 0.839(min 0.78)  Side I 0.000(min 0.00)  Side II 0.000(min 0.00)
+    B1: Normal 0.844(min 0.74)  Side I 0.292(min 0.00)  Side II 0.479(min 0.00)
+    B2: Normal 0.504(min 0.27)  Side I 0.082(min 0.00)  Side II 0.338(min 0.00)
+    M1: Normal 0.939(min 0.86)  Side I 0.565(min 0.00)  Side II 0.826(min 0.50)
+  M1 folds with Side I F1 == 0.0: 2/50
+
+=== FULL SET ===
+  B0: mean 0.3030  std 0.0018  p10 0.3016  p90 0.3052  min 0.3016  max 0.3052
+  B1: mean 0.5335  std 0.0900  p10 0.4205  p90 0.6401  min 0.3008  max 0.7561
+  B2: mean 0.3996  std 0.0638  p10 0.3279  p90 0.4799  min 0.2659  max 0.5434
+  M1: mean 0.7858  std 0.0812  p10 0.6571  p90 0.8806  min 0.5810  max 0.9479
+  per-class F1 (full):
+    B0: Normal 0.909(min 0.90)  Side I 0.000(min 0.00)  Side II 0.000(min 0.00)
+    B1: Normal 0.900(min 0.85)  Side I 0.247(min 0.00)  Side II 0.454(min 0.00)
+    B2: Normal 0.779(min 0.62)  Side I 0.082(min 0.00)  Side II 0.338(min 0.00)
+    M1: Normal 0.968(min 0.93)  Side I 0.565(min 0.00)  Side II 0.824(min 0.50)
+  M1 folds with Side I F1 == 0.0: 2/50
+
+--- M1 pooled confusion matrix, restricted (rows=true, cols=pred) ---
+                Normal    Side I   Side II
+    Normal         950        38        22
+    Side I          42        84        14
+    Side II         19        25       196
+  pooled predicted-class counts (restricted): {'Normal': 1011, 'Side I': 147, 'Side II': 232}
+  pooled predicted-class counts (full):       {'Normal': 1900, 'Side I': 147, 'Side II': 233}
+
+=== PAIRED MARGIN TEST, RESTRICTED DOMAIN (plan section 5.7a) ===
+  vs B0:  mean(d) +0.4967  std(d) 0.0836  wins 50/50  p10(d) +0.3704
+    1) mean(d) > 0.05          : PASS
+    2) d_i > 0 on >= 35/50 folds : PASS
+    3) p10(d) > -0.05           : PASS
+    OVERALL vs B0: PASS
+  vs B1:  mean(d) +0.2384  std(d) 0.1457  wins 47/50  p10(d) +0.0678
+    1) mean(d) > 0.05          : PASS
+    2) d_i > 0 on >= 35/50 folds : PASS
+    3) p10(d) > -0.05           : PASS
+    OVERALL vs B1: PASS
+  vs B2:  mean(d) +0.4687  std(d) 0.1087  wins 50/50  p10(d) +0.3294
+    1) mean(d) > 0.05          : PASS
+    2) d_i > 0 on >= 35/50 folds : PASS
+    3) p10(d) > -0.05           : PASS
+    OVERALL vs B2: PASS
+
+=== THE PROXY BAR (user ruling) ===
+  restricted headline (M1 mean over 50 folds): 0.7765
+  bar = leaking domwavelength proxy:           0.3984
+  (for reference, raw v scored 0.3566 - NOT the bar)
+  VERDICT: headline BEATS the proxy bar of 0.3984
+
+elapsed: 700.7 s
+========================================================================

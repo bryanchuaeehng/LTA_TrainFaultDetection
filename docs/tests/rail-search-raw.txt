@@ -1,0 +1,96 @@
+==============================================================================
+NESTED-CV MODEL SEARCH — per docs/search-plan.md (pre-registered)
+==============================================================================
+eligible files : 228  features: 982
+class counts   : {'Normal': np.int64(190), 'Side II': np.int64(24), 'Side I': np.int64(14)}
+restricted     : 139 files at v >= 9.7
+seed           : 20260918
+outer          : RepeatedStratifiedKFold(5x10) = 50 folds
+inner          : StratifiedKFold(3, shuffle=True)
+incumbent      : C1 (restricted 0.7765 from the frozen run)
+
+pre-registered configurations (8): C1, C2, C3, C4, C5, C6, C7, C8
+NOT extended at run time.
+
+==============================================================================
+OUTER FOLDS
+==============================================================================
+  fold  1/50  inner winner C3  outer(nested) 0.9153
+  fold  5/50  inner winner C1  outer(nested) 0.8175
+  fold 10/50  inner winner C8  outer(nested) 0.5820
+  fold 15/50  inner winner C1  outer(nested) 0.8233
+  fold 20/50  inner winner C5  outer(nested) 0.7434
+  fold 25/50  inner winner C4  outer(nested) 0.7817
+  fold 30/50  inner winner C4  outer(nested) 0.6649
+  fold 35/50  inner winner C5  outer(nested) 0.8056
+  fold 40/50  inner winner C1  outer(nested) 0.9456
+  fold 45/50  inner winner C2  outer(nested) 0.8217
+  fold 50/50  inner winner C5  outer(nested) 0.8987
+
+==============================================================================
+NESTED ESTIMATE — this is the headline for the procedure
+==============================================================================
+  mean   0.7558
+  std    0.0977
+  p10    0.6271
+  p90    0.8872
+  min    0.4796
+  max    0.9456
+  folds  50
+
+==============================================================================
+INNER-FOLD SELECTION COUNTS (how often each config won)
+==============================================================================
+  C1  chosen 14/50  ##############
+  C3  chosen  9/50  #########
+  C5  chosen  9/50  #########
+  C2  chosen  6/50  ######
+  C4  chosen  4/50  ####
+  C7  chosen  4/50  ####
+  C8  chosen  4/50  ####
+  C6  chosen  0/50  
+
+==============================================================================
+PER-CONFIG OUTER SCORES — DIAGNOSTIC ONLY, NOT A HEADLINE
+==============================================================================
+  The maximum of this table is a biased estimate. It is logged
+  because losers are evidence, not because it may be reported.
+
+  cfg       mean      std      p10      min      max
+  C1      0.7765   0.0824   0.6483   0.5753   0.9456
+  C2      0.7773   0.0775   0.6824   0.5667   0.9153
+  C3      0.7728   0.0980   0.6104   0.5253   0.9259
+  C4      0.7653   0.1043   0.6428   0.4675   0.9443
+  C5      0.7604   0.0950   0.6189   0.5487   1.0000
+  C6      0.6774   0.1140   0.5477   0.4600   0.8778
+  C7      0.7552   0.1206   0.5899   0.4796   0.9456
+  C8      0.7126   0.0917   0.5896   0.4788   0.9243
+
+==============================================================================
+REPLACEMENT TEST vs INCUMBENT C1
+==============================================================================
+  incumbent C1 per-fold mean: 0.7765
+
+  challenger    mean(d)    wins    p10(d)   c1  c2  c3  verdict
+  C2            +0.0008    8/50   -0.0428    n   n   Y  fail
+  C3            -0.0037   13/50   -0.0588    n   n   n  fail
+  C4            -0.0112   18/50   -0.1305    n   n   n  fail
+  C5            -0.0161   16/50   -0.1077    n   n   n  fail
+  C6            -0.0991    9/50   -0.2745    n   n   n  fail
+  C7            -0.0213   17/50   -0.1662    n   n   n  fail
+  C8            -0.0639    8/50   -0.2001    n   n   n  fail
+
+  nested procedure vs C1:
+    mean(d) -0.0207   wins 7/50
+    p10(d)  -0.0882
+
+==============================================================================
+VERDICT
+==============================================================================
+  NO challenger passed all three conditions.
+  THE INCUMBENT C1 STANDS. Frozen artefacts unchanged.
+  This is a real result: eight configurations, and the one already
+  chosen is not beaten by a margin that survives paired testing.
+
+  full log written to C:\Users\qinhu\dev\nebulaxlta\nebulax-ps3\artifacts\rail\search_log.json (no losers deleted)
+  wall clock: 3288.1 s

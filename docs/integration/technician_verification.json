@@ -1,0 +1,50 @@
+{
+  "workflow": "Actual Streamlit AppTest upload and Analyse button",
+  "subsystems": {
+    "door": {
+      "files": 1,
+      "prediction_rows": 38,
+      "seconds": 0.13603173600040463,
+      "validation": "passed",
+      "input_rows": 6253,
+      "labels": {
+        "Normal": 28,
+        "Abnormal resistance": 10
+      },
+      "operations": {
+        "Close": 20,
+        "Open": 18
+      },
+      "ambiguous": 0
+    },
+    "acv": {
+      "files": 1,
+      "prediction_rows": 1,
+      "seconds": 24.829192252999746,
+      "validation": "passed",
+      "ranking": "01|03|04|07|08|06|02|05"
+    },
+    "rail": {
+      "files": 68,
+      "prediction_rows": 68,
+      "seconds": 107.66750322200005,
+      "validation": "passed",
+      "labels": {
+        "Normal": 57,
+        "Side II": 6,
+        "Side I": 5
+      },
+      "low_speed_rule_count": 10
+    },
+    "shm": {
+      "files": 16,
+      "prediction_rows": 16,
+      "seconds": 7.935017312999662,
+      "validation": "passed"
+    }
+  },
+  "report_and_clear_upload": "passed",
+  "malformed_upload": "friendly error; stale output removed",
+  "zip_validation": "passed",
+  "process_peak_rss_mib": 2789.359375
+}

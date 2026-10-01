@@ -1,0 +1,30 @@
+leakage is a property of the DATA. Only an empirical check catches it.
+
+[1] after suffix contract:                 1104
+[2] DROPPED: domwavelength family (banned): 48
+    -> remaining:                           1056
+
+[3] correlation gate, |Spearman| vs v > 0.9
+    domain: restricted eligible training set (v >= V_CUT = 9.7), n = 139 files
+    THRESHOLD IS CHOSEN PRAGMATICALLY, NOT DERIVED.
+    Fixed feature-set decision computed ONCE on training data,
+    NOT a per-fold fit. Uses speeds only, never labels.
+    candidates examined: 1056
+    **DROPPED BY THE GATE: 74**
+    max |Spearman| among KEPT features: 0.8995
+
+FINAL MODEL MATRIX: 982 features
+  (1104 after suffix contract -> 1056 after domwavelength ban -> 982 after correlation gate)
+
+  10 highest |Spearman| among candidates (dropped ones marked):
+    0.9879  DROP  shk_median_rms_sym_amppv2
+    0.9869  DROP  shk_median_rms_sideII_amppv2
+    0.9825  DROP  shk_median_peak_sideI_amppv2
+    0.9822  DROP  shk_median_peak_sym_amppv2
+    0.9821  DROP  shk_median_rms_sideI_amppv2
+    0.9734  DROP  shk_p90_rms_sym_amppv2
+    0.9722  DROP  shk_median_peak_sideII_amppv2
+    0.9719  DROP  shk_p90_peak_sideII_amppv2
+    0.9707  DROP  shk_p90_rms_sideII_amppv2
+    0.9670  DROP  shk_p90_bandpow_total_sym_amppv2
+========================================================================

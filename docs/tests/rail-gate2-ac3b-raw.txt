@@ -1,0 +1,56 @@
+========================================================================
+AC-3b - realised eligible counts at the DERIVED V_MIN, and B0
+========================================================================
+V_MIN is derived, not chosen (plan section 5.3a.2a):
+    V_MIN = N * lambda_max / t = 2 * 0.64 m / 1.0 s = 1.28 m/s  (4.608 km/h)
+
+Train files measured (column 1 only): 272
+Full-corpus label counts: Normal: 234, Side I: 14, Side II: 24, total 272
+
+--- Excluded (v < V_MIN = 1.28) ---
+  count: 44
+  per-class: Normal: 44, Side I: 0, Side II: 0
+  of which v == 0 exactly: 38; 0 < v < V_MIN: 6
+  fastest excluded file: 0.4896 m/s
+  slowest retained file: 1.2907 m/s
+  files in [1.00, 1.28): 0   (plan section 5.3a.3 asserts ZERO; threshold lands in an empty gap)
+
+--- Eligible (training/CV population) ---
+  per-class: Normal: 190, Side I: 14, Side II: 24
+  total: 228
+
+--- MANDATORY ASSERTION (AC-3b): zero fault files excluded ---
+  Side I excluded:  0
+  Side II excluded: 0
+  RESULT: PASSED - the excluded set is entirely majority-class.
+
+--- Addition 1: empirical support for the section 5.3a.4 rule ---
+  Of the 44 Train files below V_MIN, 44 are Normal.
+  Breakdown: Normal: 44, Side I: 0, Side II: 0
+  => 44/44 = 100.0% of low-speed Train files are Normal.
+  The rule 'predict Normal below V_MIN' is therefore never once
+  contradicted by a labelled low-speed Train file. This is EVIDENCE
+  FOR the rule, not a claim that the rule is safe.
+
+--- B0: always-Normal macro F1 on the REALISED eligible set ---
+  per-class F1: Normal: 0.909091, Side I: 0.000000, Side II: 0.000000
+  B0 macro F1 (realised, eligible set): 0.303030
+  plan section 5.3a.3 expectation: ~0.3030
+  for reference, B0 on the full 272: 0.308300  (Gate 1 measured 0.3083)
+
+--- Restricted domain composition at V_CUT = 9.7 (AC-28, eligible only) ---
+  per-class: Normal: 101, Side I: 14, Side II: 24
+  total: 139 of 228 eligible (61.0%)
+  plan section 4.7.3 estimate: ~101 Normal / 14 Side I / 24 Side II, total ~139
+
+--- AC-14: derived speed by class (full corpus, then eligible) ---
+  [full]
+    Normal   n=234  min=  0.0000  med=  8.1297  max= 19.4787 m/s   (med 29.267 km/h)
+    Side I   n= 14  min=  9.7023  med= 12.9586  max= 18.6035 m/s   (med 46.651 km/h)
+    Side II  n= 24  min= 11.6902  med= 13.9971  max= 18.5145 m/s   (med 50.390 km/h)
+  [eligible]
+    Normal   n=190  min=  1.2907  med=  9.9545  max= 19.4787 m/s   (med 35.836 km/h)
+    Side I   n= 14  min=  9.7023  med= 12.9586  max= 18.6035 m/s   (med 46.651 km/h)
+    Side II  n= 24  min= 11.6902  med= 13.9971  max= 18.5145 m/s   (med 50.390 km/h)
+
+========================================================================

@@ -1,0 +1,6 @@
+filename,true_faulty_car,true_rank,rank_decay_score,ranked_cars
+acv_case_01.xlsx,01,1,1.0,01|02|03|04|07|08|06|05
+acv_case_02.xlsx,02,1,1.0,02|03|07|08|06|01|04|05
+acv_case_03.xlsx,03,1,1.0,03|02|01|04|08|07|06|05
+acv_case_05.xlsx,04,1,1.0,04|02|07|01|06|03|08|05
+acv_case_06.xlsx,06,1,1.0,06|08|04|02|03|05|01|07

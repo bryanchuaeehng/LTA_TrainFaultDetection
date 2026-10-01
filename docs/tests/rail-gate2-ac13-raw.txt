@@ -1,0 +1,46 @@
+========================================================================
+AC-13 - side-swap symmetry invariant
+========================================================================
+--- AC-12: channel index arithmetic (plan section 5.2) ---
+  j -> car = j//16+1, pos = (j%16)//2+1, kind = vib if j even, side = Side I if pos odd
+    j=0    car=1  pos=1  vibration Side I
+    j=1    car=1  pos=1  shock     Side I
+    j=2    car=1  pos=2  vibration Side II
+    j=3    car=1  pos=2  shock     Side II
+    j=4    car=1  pos=3  vibration Side I
+    j=5    car=1  pos=3  shock     Side I
+    ...
+    j=122  car=8  pos=6  vibration Side II
+    j=123  car=8  pos=6  shock     Side II
+    j=124  car=8  pos=7  vibration Side I
+    j=125  car=8  pos=7  shock     Side I
+    j=126  car=8  pos=8  vibration Side II
+    j=127  car=8  pos=8  shock     Side II
+  Side I channels:  64  (32 vib + 32 shock)
+  Side II channels: 64  (32 vib + 32 shock)
+  assertion 64/64 with 32 vib + 32 shock each: PASSED
+
+--- side-swap permutation: j -> j XOR 2, e.g. [(0, 2), (1, 3), (2, 0), (3, 1)] ---
+diagnostic model: M1 fitted on the 228 eligible Train files (for the invariant only; not a validation score)
+files tested: 12 (Normal=4, Side I=4, Side II=4)  - all eligible, so the low-speed rule cannot short-circuit
+
+file          true      pred      pred(swap)  expected        
+Train261.csv  Normal    Normal    Normal      Normal    PASS
+Train209.csv  Normal    Normal    Normal      Normal    PASS
+Train234.csv  Normal    Normal    Normal      Normal    PASS
+Train24.csv   Normal    Normal    Normal      Normal    PASS
+Train185.csv  Side I    Side I    Normal      Side II   FAIL
+Train150.csv  Side I    Side I    Side II     Side II   PASS
+Train202.csv  Side I    Side I    Normal      Side II   FAIL
+Train170.csv  Side I    Side I    Normal      Side II   FAIL
+Train53.csv   Side II   Side II   Normal      Side I    FAIL
+Train267.csv  Side II   Side II   Normal      Side I    FAIL
+Train93.csv   Side II   Side II   Side I      Side I    PASS
+Train2.csv    Side II   Side II   Side I      Side I    PASS
+
+AC-13 RESULT: 7 passed, 5 failed, out of 12
+*** PARTIAL FAILURE - reportable finding, NOT a silent pass. ***
+*** The side-swap invariant is the structural property the       ***
+*** contrast design of section 5.2 claims; a failure means the    ***
+*** feature set is not side-antisymmetric as designed.            ***
+========================================================================

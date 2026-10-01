@@ -1,0 +1,27 @@
+========================================================================
+GATE 1b - Test-set domain check (plan section 4.8)
+========================================================================
+DECLARED Test access: column 1 only, read via usecols=[0].
+No columns 2-129 read. Nothing fitted. No model choice informed.
+V_MIN = 1.28 m/s   V_CUT = 9.7 m/s   (both fixed before this ran)
+
+Test files enumerated: 68
+
+[1] Test files with v == 0 exactly (zero transitions): 9 / 68
+[2] Test files with 0 < v < V_MIN (1.28 m/s):        1 / 68
+    => total below V_MIN (low-speed rule would fire):   10 / 68
+[3] Test files with v >= V_CUT (9.7 m/s):           43 / 68
+    Test files with v <  V_CUT:                         25 / 68
+[4] Five-number summary of derived speed across the 68 Test files:
+      stat    |    m/s    |   km/h
+      min     |    0.0000 |    0.000
+      p25     |    4.3059 |   15.501
+      median  |   11.1339 |   40.082
+      p75     |   13.2331 |   47.639
+      max     |   18.7963 |   67.667
+[5] Transition count T: min 0, median 750.5, max 1267
+[6] Test files whose column 1 contains any non-binary value: 0 / 68
+    Column 1 binary {0,1} in Test as in Train: CONFIRMED
+
+End of the six items. Nothing further computed on Test.
+========================================================================

@@ -1,0 +1,44 @@
+============================================================================
+DOOR — rolling-origin validation
+============================================================================
+stream rows        : 18036
+gap threshold      : 1.0 s
+segments found     : 110
+true segments      : 110
+max start error    : 0.000000 s
+max end error      : 0.000000 s
+boundaries exact   : True
+labels             : 80 Normal / 30 Abnormal resistance
+operation inferred correctly: 100.0%
+
+============================================================================
+B0 — always Normal (the floor)
+============================================================================
+  IoU-weighted F1: 0.7273
+
+============================================================================
+B1 — per-operation threshold on integrated current
+============================================================================
+  Rolling origin: train on everything before the cut, test on the
+  next ~10% of cycles. Thresholds fitted inside the training part only.
+
+  fold  train        test          abn    thr Open  thr Close    score
+  0     [0:55]      [55:67]        4      100103      88402   1.0000
+  1     [0:66]      [66:78]        3      100103      88402   1.0000
+  2     [0:77]      [77:89]        4      100178      88402   1.0000
+  3     [0:88]      [88:100]       4      100178      88402   1.0000
+  4     [0:99]      [99:110]       4      100178      88402   1.0000
+
+  mean 1.0000   min 1.0000   max 1.0000   std 0.0000   folds 5
+
+  The MINIMUM is the honest headline, not the mean: with 3-4 abnormal
+  cycles per fold, a single misclassification moves the score a long way.
+
+============================================================================
+Full-data fit, for the shipped model
+============================================================================
+  Close  threshold      88402   normal max    86678   abnormal min    90126
+  Open   threshold     100178   normal max    94041   abnormal min   106315
+
+  in-sample score 1.0000 (NOT a generalisation estimate —
+  the thresholds were fitted on these same cycles)

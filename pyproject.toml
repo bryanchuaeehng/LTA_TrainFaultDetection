@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nebulax-ps3"
+version = "0.1.0"
+description = "Unified train condition monitoring for LTA NebulaX PS3"
+requires-python = ">=3.12"
+
+[tool.setuptools]
+packages = ["src", "src.common", "src.rail", "src.door", "src.acv", "src.shm", "src.app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Put the repo root on sys.path so `from src.common...` resolves when pytest is
+# run from the root without an editable install.
+pythonpath = ["."]

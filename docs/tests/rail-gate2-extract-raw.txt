@@ -1,0 +1,33 @@
+========================================================================
+GATE 2 - streaming feature extraction to the Parquet cache
+========================================================================
+feature version: rail-feat-v2.0.0
+V_MIN = 1.28 m/s (derived)   V_CUT = 9.7 m/s
+
+TRAIN: 272 files extracted in 22.5 s (0.083 s/file)
+TEST:  68 files extracted in 5.0 s (0.074 s/file)
+
+WALL-CLOCK, full pass over 272 Train files: 22.5 s = 0.37 min
+WALL-CLOCK, Train + Test (340 files): 27.5 s = 0.46 min
+
+train shape: (272, 1112)   test shape: (68, 1111)
+train and test carry the same feature columns: True
+F (total feature columns, excluding file_id/meta_label): 1110
+  model matrix columns (admitted): 1104
+  meta_ columns (dropped):         6 -> ['meta_T', 'meta_eligible', 'meta_index', 'meta_restricted', 'meta_v_kmh', 'meta_v_mps']
+AC-4 range 500-1,200: WITHIN
+
+--- AC-36: unit-suffix inventory ---
+  closed vocabulary: ['_m', '_ratio', '_amppv', '_amppv2', '_amp', '_hz', '_persec']
+    _m           48 columns   [admitted]
+    _ratio      288 columns   [admitted]
+    _amppv      384 columns   [admitted]
+    _amppv2     384 columns   [admitted]
+    _amp          0 columns   [REJECTED]
+    _hz           0 columns   [REJECTED]
+    _persec       0 columns   [REJECTED]
+  admitted to model matrix: 1104
+  rejected by suffix rule:  0
+  on disk: features_train.parquet = 3.261 MB
+  on disk: features_test.parquet = 1.459 MB
+========================================================================

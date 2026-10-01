@@ -1,0 +1,72 @@
+{
+  "feature_version": "rail-feat-v2.0.0",
+  "extracted_at": "2026-09-18T20:23:14.909104+00:00",
+  "train_shape": [
+    272,
+    1112
+  ],
+  "test_shape": [
+    68,
+    1111
+  ],
+  "V_MIN": 1.28,
+  "V_MIN_derivation": {
+    "formula": "V_MIN = N * lambda_max / t",
+    "N": 2,
+    "lambda_max_m": 0.64,
+    "t_s": 1.0,
+    "result_mps": 1.28,
+    "note": "Derived, not chosen. Plan section 5.3a.2a; N is the assumption at section 7.14."
+  },
+  "V_CUT": 9.7,
+  "wavelength_bands_m": [
+    [
+      0.02,
+      0.04
+    ],
+    [
+      0.04,
+      0.08
+    ],
+    [
+      0.08,
+      0.16
+    ],
+    [
+      0.16,
+      0.32
+    ],
+    [
+      0.32,
+      0.64
+    ]
+  ],
+  "welch": {
+    "nperseg": 2048,
+    "noverlap": 1024,
+    "window": "hann",
+    "fs": 10000,
+    "detrend": "constant"
+  },
+  "eps": 1e-12,
+  "unit_suffixes": [
+    "_m",
+    "_ratio",
+    "_amppv",
+    "_amppv2",
+    "_amp",
+    "_hz",
+    "_persec"
+  ],
+  "admissible_suffixes": [
+    "_m",
+    "_ratio",
+    "_amppv",
+    "_amppv2"
+  ],
+  "rejected_suffixes": [
+    "_amp",
+    "_hz",
+    "_persec"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "official_tree": "966c976005db2e3e40a691cff268fdb8f396a5df",
+  "branches": [
+    {
+      "name": "ACV",
+      "commit": "ee991395a93e9e7666e0db63de9860675bdbe7de"
+    },
+    {
+      "name": "SHM",
+      "commit": "1a5d57b39d94fd13780b7fcc86e422a9b9f9ea55"
+    },
+    {
+      "name": "bryan",
+      "commit": "33c7e23f4db52e1960da44f396e66ca8fd2624d6"
+    },
+    {
+      "name": "door-andre",
+      "commit": "22e36d64075c5229f72315cab91787b17a998bde"
+    },
+    {
+      "name": "main",
+      "commit": "b63f6be080e3527b3e65b8d41413b6b81eef4a1e"
+    },
+    {
+      "name": "overnight-writeup",
+      "commit": "02422232615dfc8d6f7a059cd11232161d6daa84"
+    },
+    {
+      "name": "qh",
+      "commit": "0829ae33a18e7000218610b948d857ae6004fd0d"
+    },
+    {
+      "name": "qh-door",
+      "commit": "bb3fdb5c9a5ed37b91262bd6bc7eeeb99ebe5eab"
+    }
+  ],
+  "absent_branches": [
+    "Doors",
+    "doors"
+  ],
+  "base_branch": "overnight-writeup",
+  "production_sources": {
+    "door": "qh-door",
+    "acv": "ACV",
+    "rail": "overnight-writeup",
+    "shm": "bryan"
+  },
+  "qh_door_sources_match_base": true,
+  "excluded_door_model": "door-andre predicts door leaf position, not the required temporal detection task",
+  "gcp": {
+    "project": "qwiklabs-gcp-02-d9853c9ea2f4",
+    "region": "asia-southeast1",
+    "service": "lta-nebulax-ps3",
+    "deployed": false,
+    "blocker": "No GCP CLI/ADC authentication; supplied console page unavailable in cloud browser"
+  },
+  "rubric_checklist": {
+    "problem_fit": [
+      "All four task types integrated",
+      "Maintenance interpretations and explainability",
+      "Committed benchmarks contextualised",
+      "No RUL or calibrated-probability claims"
+    ],
+    "technical_execution": [
+      "Real fixed-artifact inference",
+      "Training-only SHM reconstruction with parity gate",
+      "Official CSVs and root-level ZIP",
+      "Malformed data block output",
+      "54 passing contract and metric tests, including the concurrency gate"
+    ],
+    "ease_of_use": [
+      "Single sidebar navigation",
+      "Upload/Analyse/results/download",
+      "Central submission outputs",
+      "Friendly errors and visible model availability"
+    ]
+  }
+}

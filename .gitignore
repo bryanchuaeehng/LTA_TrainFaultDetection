@@ -1,8 +1,39 @@
+# Data lives OUTSIDE this repo, reached via src/common/paths.py (NEBULAX_DATA).
+# These entries are belt-and-braces against a stray copy landing here.
 data/
+PS3/02_Datasets/
+*.csv.gz
+
+# Model artefacts
 *.pkl
 *.joblib
+
+# Environments / caches
 __pycache__/
 .venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Submission outputs
 predictions.zip
 predictions/
+
 .DS_Store
+
+# Ignore derived caches; retain the four production model bundles.
+artifacts/*
+!artifacts/door/
+!artifacts/rail/
+!artifacts/acv/
+!artifacts/shm/
+artifacts/rail/*
+!artifacts/rail/model.joblib
+!artifacts/rail/speed_correlated_features.json
+!artifacts/acv/acv_model_bundle.joblib
+!artifacts/shm/model.joblib
+outputs/
+
+# Local agent/session config — not project deliverables
+CLAUDE.md
+.claude/
