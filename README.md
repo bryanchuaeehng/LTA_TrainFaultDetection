@@ -1,3 +1,8 @@
+# Credits
+
+Collaboratively built with my lovely team @yaypilled, Ashwinshiva and Andre for LTA NebulaX Hackathon <3
+
+
 # SHM — Cumulative Fatigue Damage Regression
 
 **Shipped model: ridge regression on physics-derived features.**
