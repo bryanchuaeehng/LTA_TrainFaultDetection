@@ -7,6 +7,10 @@ cumulative-damage estimation.
 **Zero of our five leaderboard uploads were used.** Every number below comes
 from local validation, which meant the validation had to be worth trusting.
 That constraint shaped most of what follows.
+# Final model submission evaluation scores:
+<img width="1036" height="553" alt="image" src="https://github.com/user-attachments/assets/44363da7-83cd-4f04-9dfb-a0985d442ca3" />
+
+Scores mentioned anywhere below this are from local eval. 
 
 ## Run locally
 
@@ -29,6 +33,9 @@ The short version: **three of the four subsystems are too small to justify a
 learned model, and we said so rather than fitting one anyway.**
 
 ### Rail — the only subsystem with a real model, and the only one with a trap
+TLDR: **three of the four subsystems are too small to justify ML models so we just used chud small models**
+
+### Rail — the only subsystem with a real model,
 
 272 training files, 234 Normal against 14 Side I and 24 Side II.
 

@@ -1,0 +1,90 @@
+# ============================================================================
+# NebulaX 2026 Hackathon — Problem Statement 3
+# Subsystem 4: SHM (Structural Health Monitoring)
+# Cumulative fatigue damage regression from dynamic stress time series
+#
+# Target: Python 3.12  (3.11 also fine; avoid 3.13 — some wheels lag)
+#
+#   python -m venv .venv
+#   source .venv/bin/activate        # Windows: .venv\Scripts\activate
+#   pip install --upgrade pip
+#   pip install -r requirements.txt
+#   pip freeze > requirements.lock.txt   # <- commit this for the judges
+# ============================================================================
+ 
+ 
+# ---------------------------------------------------------------------------
+# Core numerics / data handling
+# ---------------------------------------------------------------------------
+numpy==2.2.6                 # array maths; the sum(n_i * sigma_i^m) kernel
+pandas==2.2.3                # CSV I/O, Train_Labels.csv join, predictions CSV
+scipy==1.15.2                # optimize.minimize_scalar / differential_evolution
+                             #   for the S-N parameter (m, C, sigma_cut) recovery
+                             #   scipy.signal for optional detrend / filtering
+ 
+ 
+# ---------------------------------------------------------------------------
+# Fatigue / rainflow counting  — the heart of this subsystem
+# ---------------------------------------------------------------------------
+# Two independent ASTM E1049-85 implementations, deliberately. They differ in
+# how they close out the residual half-cycles at the end of a series, which
+# shifts damage by a small but non-zero amount. Run the parameter recovery
+# against BOTH and keep whichever produces the tighter residual collapse.
+rainflow==3.2.0              # iamlikeme/rainflow — simple, returns (rng, mean, count)
+fatpack==0.7.5               # gunnstein/fatpack — adds S-N curve + Palmgren-Miner
+                             #   objects, endurance/knee handling, Goodman correction
+ 
+ 
+# ---------------------------------------------------------------------------
+# Modelling (fallback path only — if physics recovery doesn't converge)
+# ---------------------------------------------------------------------------
+scikit-learn==1.6.1          # Ridge/HuberRegressor in log-space, GroupKFold,
+                             #   LeaveOneOut, KMeans for AW0/AW4 + line grouping
+statsmodels==0.14.4          # OLS with proper CIs on the log-log fit; handy for
+                             #   showing judges the fit is a real power law
+# lightgbm==4.6.0            # UNCOMMENT ONLY IF NEEDED. 64 training rows and it
+                             #   cannot extrapolate past the training damage range
+                             #   — genuine risk on held-out files. Linear-in-log
+                             #   is the right model class here.
+ 
+ 
+# ---------------------------------------------------------------------------
+# App (Deliverable item 3) + demo video evidence (item 1)
+# ---------------------------------------------------------------------------
+# Ease of Use is a full third of the overall rubric. Streamlit gives drag-and-drop
+# upload, an on-screen results table and st.download_button in ~150 lines.
+streamlit==1.44.0
+plotly==6.0.1                # interactive stress trace + rainflow histogram;
+                             #   hover/zoom reads far better on a demo video
+                             #   than a static PNG
+matplotlib==3.10.1           # dev-time diagnostic plots (the m-scan residual
+                             #   collapse curve — your proof-of-correctness figure)
+ 
+ 
+# ---------------------------------------------------------------------------
+# Plumbing
+# ---------------------------------------------------------------------------
+joblib==1.4.2                # persist the fitted (m, C, sigma_cut) params + any model
+tqdm==4.67.1                 # progress over the 64 train / 16 test files
+pyarrow==19.0.1              # fast CSV reader backend for pandas
+ 
+ 
+# ---------------------------------------------------------------------------
+# Development only — safe to strip from the app's deployment requirements
+# ---------------------------------------------------------------------------
+jupyterlab==4.3.6
+ipykernel==6.29.5
+ipywidgets==8.1.5
+ 
+ 
+# ---------------------------------------------------------------------------
+# NOT included, on purpose
+# ---------------------------------------------------------------------------
+# torch / tensorflow  — 64 labelled samples. A deep model is strictly worse here
+#                       and bloats your app image for the judges.
+# xgboost / catboost  — same reasoning as the lightgbm note above.
+# openpyxl            — SHM data is *.csv only. Add it back if you also attempt
+#                       ACV or Rail Corrugation, which ship .xlsx files.
+ 
+
+
