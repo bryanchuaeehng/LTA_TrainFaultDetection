@@ -1,0 +1,9 @@
+removed_feature,top1_cases,mean_true_rank,ranks
+indoor_mean,5,1.0,"[1, 1, 1, 1, 1]"
+cooling_gap_mean,5,1.0,"[1, 1, 1, 1, 1]"
+cooling_gap_p90,5,1.0,"[1, 1, 1, 1, 1]"
+active_gap_mean,5,1.0,"[1, 1, 1, 1, 1]"
+rel_indoor_mean,5,1.0,"[1, 1, 1, 1, 1]"
+rel_gap_mean,5,1.0,"[1, 1, 1, 1, 1]"
+rel_indoor_pos_frac,5,1.0,"[1, 1, 1, 1, 1]"
+rel_gap_pos_frac,5,1.0,"[1, 1, 1, 1, 1]"
